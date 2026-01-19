@@ -1,7 +1,17 @@
 // ===============================
 // SELECT ELEMENTS
 // ===============================
+alert("we are working on this website ! so this is early version");
+document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.querySelector(".loader");
+  const page = document.querySelector(".page");
 
+  if (loader) loader.classList.add("hide");
+
+  setTimeout(() => {
+    if (page) page.classList.add("show");
+  }, 300);
+});
 const text = "Imam";
 const typingElement = document.querySelector(".typing-text");
 
@@ -21,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Visual Storyteller",
     "Color Grading Artist",
     "Creative Filmmaker",
-    "Cinematic Editor"
+    "Cinematic Editor",
   ];
 
   const textElement = document.querySelector(".changing-text");
@@ -48,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(updateText, 2500);
   console.log("text element:", textElement);
-
 });
 
 window.addEventListener("DOMContentLoaded", typeEffect);
@@ -64,7 +73,7 @@ let previewTimers = [];
 // CLEAR ALL PREVIEW TIMERS
 // ===============================
 function clearPreviewTimers() {
-  previewTimers.forEach(timer => clearTimeout(timer));
+  previewTimers.forEach((timer) => clearTimeout(timer));
   previewTimers = [];
 }
 
@@ -72,7 +81,7 @@ function clearPreviewTimers() {
 // STOP ALL VIDEOS
 // ===============================
 function stopAllVideos() {
-  videos.forEach(video => {
+  videos.forEach((video) => {
     video.pause();
     video.muted = true;
     video.currentTime = 0;
@@ -101,7 +110,7 @@ function playPreview(video, duration = 5000) {
 // UPDATE SLIDES (CORE LOGIC)
 // ===============================
 function updateSlides() {
-  slides.forEach(slide => {
+  slides.forEach((slide) => {
     slide.classList.remove("prev", "active", "next");
   });
 
@@ -133,7 +142,7 @@ function updateSlides() {
 // ===============================
 // BUTTON CONTROLS
 // ===============================
-buttons.forEach(button => {
+buttons.forEach((button) => {
   button.addEventListener("click", () => {
     if (button.dataset.carouselButton === "next") {
       currentIndex = (currentIndex + 1) % slides.length;
