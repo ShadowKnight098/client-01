@@ -211,6 +211,32 @@
         </div>
       </section>
     </div>
-    <script src="./script.js" defer></script>
+
+    <script>
+      alert("we are working on this website ! so this is early version");
+      const LoadingFunction = () => {
+        // const loader = document.querySelector(".loader");
+        const loader = document.querySelector(".loader");
+        setTimeout(() => {
+          loader.classList.add("hide");
+        }, 300);
+      };
+      document.addEventListener('DOMContentLoaded',()=>{
+        const loader = document.querySelector('.loader')
+
+        if(loader) loader.classList.add('hide');
+      })
+      // document.addEventListener("DOMContentLoaded", () => {
+      //   const loader = document.querySelector(".loader");
+      //   const page = document.querySelector(".page");
+
+      //   if (loader) loader.classList.add("hide");
+
+      //   setTimeout(() => {
+      //     if (page) page.classList.add("show");
+      //   }, 300);
+      // });
+    </script>
+    <script src="script.js"></script>
   </body>
 </html>
