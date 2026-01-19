@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (page) page.classList.add("show");
   }, 300);
 });
+console.log("the js is loaded")
 const text = "Imam";
 const typingElement = document.querySelector(".typing-text");
 
