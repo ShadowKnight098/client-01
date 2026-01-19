@@ -1,9 +1,26 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.querySelector(".loader");
+  const page = document.querySelector(".page");
+
+  setTimeout(() => {
+    if (loader) loader.classList.add("hide");
+    if (page) page.classList.add("show");
+  }, 300);
+});
 console.log("JS LOADED");
 
-// ===============================
-// WAIT FOR DOM
-// ===============================
 document.addEventListener("DOMContentLoaded", () => {
+
+  // ===============================
+  // PRELOADER (FIXED)
+  // ===============================
+  const loader = document.querySelector(".loader");
+  const page = document.querySelector(".page");
+
+  setTimeout(() => {
+    if (loader) loader.classList.add("hide");
+    if (page) page.classList.add("show");
+  }, 300);
 
   // ===============================
   // TYPING EFFECT
@@ -16,14 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function typeEffect() {
     if (!typingElement) return;
-
     if (index < text.length) {
       typingElement.textContent += text.charAt(index);
       index++;
       setTimeout(typeEffect, speed);
     }
   }
-
   typeEffect();
 
   // ===============================
@@ -73,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function stopAllVideos() {
-    videos.forEach((video) => {
+    videos.forEach(video => {
       video.pause();
       video.muted = true;
       video.currentTime = 0;
@@ -83,18 +98,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function playPreview(video, duration = 5000) {
     if (!video) return;
-
     video.muted = true;
     video.currentTime = 0;
     video.play();
-
-    previewTimers.push(
-      setTimeout(() => video.pause(), duration)
-    );
+    previewTimers.push(setTimeout(() => video.pause(), duration));
   }
 
   function updateSlides() {
-    if (slides.length === 0) return;
+    if (!slides.length) return;
 
     slides.forEach(slide =>
       slide.classList.remove("prev", "active", "next")
@@ -125,7 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
         button.dataset.carouselButton === "next"
           ? (currentIndex + 1) % slides.length
           : (currentIndex - 1 + slides.length) % slides.length;
-
       updateSlides();
     });
   });
