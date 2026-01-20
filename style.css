@@ -86,51 +86,35 @@
     z-index: 1000;
   }
   .loader {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    z-index: 100;
-    inset: 0;
-    opacity: 1;
-    visibility: visible;
-    transition:
-      opacity 0.6s ease-in,
-      visibility 0.6s ease;
-    background: #4d1d76
-      url("https://media.tenor.com/zozwXPG9Z0AAAAAi/mario-16-bit.gif") no-repeat;
-    background-position: center;
-    transform: translateY(0);
-  }
-  .loader {
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
-    transition:
-      opacity 0.6s ease,
-      transform 0.6s ease,
-      filter 0.6s ease;
-  }
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #4d1d76
+    url("https://media.tenor.com/zozwXPG9Z0AAAAAi/mario-16-bit.gif")
+    no-repeat center;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
 
-  .loader.hide {
+.loader.hide {
+  opacity: 0;
+  pointer-events: none;
+}
 
-    opacity: 0;
-    transform: scale(0.96);
-    filter: blur(6px);
-    display: none;
-  }
-  .page {
-    opacity: 0;
-    /* transform: translateY(16px); */
-    transition:
-      opacity 0.6s ease,
-      transform 0.6s ease;
-  }
+.page {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  
+  will-change: opacity, transform;
 
-  .page.show {
 
-    opacity: 1;
-    /* transform: translateY(0); */
-  }
+}
+
+.page.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
   .nav {
     height: 5rem;
