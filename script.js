@@ -9,6 +9,28 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 console.log("JS LOADED");
 
+
+// =================================
+//    NavBar Section 
+// ==============================
+const navBar = document.querySelector(".navbar");
+const nav = document.querySelector(".nav")
+
+
+
+
+window.addEventListener('scroll',()=>{
+  if (window.scrollY >100){
+    navBar.classList.add("scroll")
+    nav.classList.add("scroll")
+  }else{
+    navBar.classList.remove("scroll")
+    nav.classList.remove("scroll")
+  }
+})
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
   // ===============================

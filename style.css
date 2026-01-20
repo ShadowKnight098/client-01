@@ -73,8 +73,17 @@ body {
 nav {
   display: flex;
   justify-content: center;
+  transition: all .5s linear;
   align-items: center;
   width: 100%;
+  transform: translateY(0);
+}
+.navbar.scroll {
+  position: fixed;
+  top: 0%;
+  scale: 1.1;
+  transform: translateY(5px);
+  z-index: 1000;
 }
 .loader {
   position: fixed;
@@ -103,6 +112,7 @@ nav {
 }
 
 .loader.hide {
+
   opacity: 0;
   transform: scale(0.96);
   filter: blur(6px);
@@ -110,15 +120,18 @@ nav {
 }
 .page {
   opacity: 0;
+  display: none;
   transform: translateY(16px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .page.show {
+  display: block;
   opacity: 1;
   transform: translateY(0);
 }
-
 
 .nav {
   height: 5rem;
@@ -143,6 +156,12 @@ nav {
       transition: all 0.5s linear;
     }
   }
+}
+.nav.scroll {
+  /* background-color: transparent; */
+  border: 0.2rem solid #fff;
+  /* color: #fff; */
+  border-radius: 2rem;
 }
 
 .hero {
@@ -607,6 +626,12 @@ nav {
     margin-top: 0;
     padding: 2rem;
   }
+  .carousel-button{
+    width: 8rem;
+    height: 8rem;
+    padding: 0 2.5rem;
+    font-size: 3rem;    
+  }
 }
 @media (max-width: 576px) {
   html {
@@ -707,11 +732,11 @@ nav {
     padding: 0;
     gap: 6rem;
   }
-  .about-content{
+  .about-content {
     margin: 0;
 
-    & .sub-content p{
-      font-size: 1.4rem     ;
+    & .sub-content p {
+      font-size: 1.4rem;
     }
   }
 }
