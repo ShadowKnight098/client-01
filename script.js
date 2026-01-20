@@ -6,43 +6,35 @@ document.addEventListener("DOMContentLoaded", () => {
     if (loader) loader.classList.add("hide");
     if (page) page.classList.add("show");
   }, 300);
+  const navBar = document.querySelector(".navbar");
+  const nav = document.querySelector(".nav");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      navBar.classList.add("scroll");
+      nav.classList.add("scroll");
+    } else {
+      navBar.classList.remove("scroll");
+      nav.classList.remove("scroll");
+    }
+  });
 });
 console.log("JS LOADED");
 
-
 // =================================
-//    NavBar Section 
+//    NavBar Section
 // ==============================
-const navBar = document.querySelector(".navbar");
-const nav = document.querySelector(".nav")
-
-
-
-
-window.addEventListener('scroll',()=>{
-  if (window.scrollY >100){
-    navBar.classList.add("scroll")
-    nav.classList.add("scroll")
-  }else{
-    navBar.classList.remove("scroll")
-    nav.classList.remove("scroll")
-  }
-})
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
-
   // ===============================
   // PRELOADER (FIXED)
   // ===============================
-  const loader = document.querySelector(".loader");
-  const page = document.querySelector(".page");
+  // const loader = document.querySelector(".loader");
+  // const page = document.querySelector(".page");
 
-  setTimeout(() => {
-    if (loader) loader.classList.add("hide");
-    if (page) page.classList.add("show");
-  }, 300);
+  // setTimeout(() => {
+  //   if (loader) loader.classList.add("hide");
+  //   if (page) page.classList.add("show");
+  // }, 300);
 
   // ===============================
   // TYPING EFFECT
@@ -110,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function stopAllVideos() {
-    videos.forEach(video => {
+    videos.forEach((video) => {
       video.pause();
       video.muted = true;
       video.currentTime = 0;
@@ -129,9 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateSlides() {
     if (!slides.length) return;
 
-    slides.forEach(slide =>
-      slide.classList.remove("prev", "active", "next")
-    );
+    slides.forEach((slide) => slide.classList.remove("prev", "active", "next"));
 
     const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
     const nextIndex = (currentIndex + 1) % slides.length;
@@ -152,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
     playPreview(slides[nextIndex].querySelector("video"));
   }
 
-  buttons.forEach(button => {
+  buttons.forEach((button) => {
     button.addEventListener("click", () => {
       currentIndex =
         button.dataset.carouselButton === "next"
