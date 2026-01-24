@@ -15,7 +15,6 @@ window.addEventListener("load", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-
   // ===============================
   // PRELOADER
   // ===============================
@@ -42,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
       nav.classList.remove("scroll");
     }
   });
-
 });
 
 // ===============================
@@ -161,34 +159,21 @@ buttons.forEach((button) => {
   });
 });
 
-updateSlides();
-// ================================
-// image carousel 
-// ================================
 
-const slides1 = document.querySelectorAll('.imgDiv');
-const nextBtn = document.querySelector('.nextBtn1');
-const prevBtn = document.querySelector('.prevBtn1');
-
-let current = 1; // middle slide active
-
-function updateCarousel() {
-  slides1.forEach(slides => slides.classList.remove('active'));
-  slides1[current].classList.add('active');
-}
-
-nextBtn.addEventListener('click', () => {
-  if (current < slides1.length - 1) {
-    current++;
-    updateCarousel();
-  }
+const modeCover = document.getElementById("modeCover");
+const sun = document.getElementById("sun");
+const night = document.getElementById("night");
+modeCover.addEventListener("click", () => {
+  modeCover.classList.toggle("active");
+  sun.classList.toggle("active");
+  night.classList.toggle("active");
 });
 
-prevBtn.addEventListener('click', () => {
-  if (current > 0) {
-    current--;
-    updateCarousel();
-  }
-});
+const interval = setInterval(() => {
+  console.log("Running...");
+}, 1000);
 
-updateCarousel();
+setTimeout(() => {
+  clearInterval(interval);
+  modeCover.classList.add("remove")
+}, 5000);
