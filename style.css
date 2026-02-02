@@ -738,7 +738,7 @@ nav {
     gap: 3rem;
 
     & li {
-      font-size: 1rem;
+      font-size: 1.7rem;
     }
   }
   .navbar.scroll {
